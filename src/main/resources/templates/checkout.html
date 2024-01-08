@@ -32,39 +32,39 @@
         <div class="w-100 d-flex justify-content-center text-align-center">
           <div id="form-div">
 
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex form-inputs m-2">
               <label for="name">Name:</label>
               <p id="name" th:text="${booking.name}"></p>
             </div>
 
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex form-inputs m-2">
               <label for="surname">Surname:</label>
               <p id="surname" th:text="${booking.surname}"></p>
             </div>
 
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex form-inputs m-2">
               <label for="numOfGuests">Number of Guests:</label>
               <p id="numOfGuests" th:text="${booking.numOfGuests}"></p>
             </div>
 
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex form-inputs m-2">
               <label for="email">Email:</label>
               <p id="email" th:text="${booking.email}"></p>
             </div>
 
 
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex form-inputs m-2">
               <label for="checkInDate">You will be checking in this day (after 15:00):</label>
               <p id="checkInDate" th:text="${booking.checkInDate}"></p>
             </div>
 
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex form-inputs m-2">
               <label for="checkOutDate">You will be checking out this day (before 13:00):</label>
               <p id="checkOutDate" th:text="${booking.checkOutDate}"></p>
             </div>
 
             <div class="d-flex justify-content-center m-2">
-              <label>Price: <span th:text="${amount/100}"></span>.00 €</label>
+              <label>Price: <span id="price" th:text="${amount/100}"></span>.00 €</label>
             </div>
 
             <!-- Checkbox for accepting terms and agreements -->
@@ -93,7 +93,7 @@
                         src='https://checkout.stripe.com/checkout.js'
                         class='stripe-button'
                         th:attr='data-key=${stripePublicKey},
-                         data-amount=${amount/100},
+                         data-amount=${amount},
                          data-currency=${currency}'
                         data-name="Vacation Stay In Milan"
                         data-description="Date Check out - Date Check In"
@@ -109,7 +109,9 @@
               const acceptTermsCheckbox = document.getElementById("acceptTerms");
               const acceptTermsMessage = document.getElementById("acceptTermsMessage");
               const checkoutFormContainer = document.getElementById("checkout-form");
+              const price = document.getElementById("price");
 
+              console.log("Price: ", price.outerHTML);
               function updateDisplay() {
                 if (acceptTermsCheckbox.checked) {
                   acceptTermsMessage.style.display = "none";
@@ -181,6 +183,10 @@
       width: 50%;
     }
 
+    .form-inputs{
+      justify-content: space-between;
+    }
+
   }
   @media screen and (max-width: 768px){
 
@@ -199,10 +205,18 @@
       width: 75%;
     }
 
+    .form-inputs{
+      justify-content: space-around;
+    }
+
   }
   @media screen and (max-width: 550px){
     #form-div{
       width: 100%;
+    }
+
+    .form-inputs{
+      justify-content: space-around;
     }
   }
 
@@ -217,7 +231,7 @@
     color: black;
     margin-top: 5%;
     padding-bottom: 5%;
-    border: solid #ceb592 30px;
+    border-top: solid #ceb592 60px;
   }
 
   #back {

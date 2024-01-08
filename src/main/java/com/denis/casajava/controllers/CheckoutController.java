@@ -53,7 +53,7 @@ public class CheckoutController {
         model.addAttribute("acceptTerms", false);
         model.addAttribute("bookingId", bookingId);
         model.addAttribute("booking", booking);
-        model.addAttribute("amount", total * 100);
+        model.addAttribute("amount", total);
         model.addAttribute("stripePublicKey", stripePublicKey);
         model.addAttribute("currency", ChargeRequest.Currency.EUR);
 
