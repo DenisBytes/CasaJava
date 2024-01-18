@@ -1,6 +1,6 @@
-# CasaJava - Vacation House Booking Website
+# StayInMilan - Booking House Website in Milan
 
-CasaJava is a Java Spring project that allows users to explore and book vacation houses in Milan. The website provides a detailed description of each house, and users can go through a seamless booking process. Additionally, the application supports email and Stripe functionalities for enhanced user experience.
+Website where you can book a vacation in a house in Milan.
 
 ## Getting Started
 
