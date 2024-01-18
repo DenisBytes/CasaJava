@@ -37,4 +37,6 @@ Make sure you have the following installed on your machine:
 - JDK (Java Development Kit)
 - MySQL Workbench
 
+Update mysql username and password if needed. the current ones are **root** for both.
+
 Note: If you plan to test email and Stripe functionalities, you'll need to update the application.properties file.
